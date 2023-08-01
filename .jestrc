@@ -1,0 +1,6 @@
+{
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+        "<rootDir>/lib/"
+    ]
+}
