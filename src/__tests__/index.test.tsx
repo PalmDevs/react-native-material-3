@@ -1,1 +1,5 @@
-it.todo('write a test');
+describe('this test', () => {
+    it('should pass', () => {
+        expect(true).toBe(true)
+    })
+})
