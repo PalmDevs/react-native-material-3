@@ -1,6 +1,6 @@
 export default {
     source: 'src',
-    output: 'lib',
+    output: 'dist',
     targets: [
         'module',
         [
