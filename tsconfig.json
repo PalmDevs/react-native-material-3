@@ -1,9 +1,6 @@
 {
     "compilerOptions": {
         "baseUrl": "./",
-        "paths": {
-            "react-native-material3": ["./src/index"]
-        },
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
         "esModuleInterop": true,
@@ -11,7 +8,7 @@
         "jsx": "react-jsx",
         "lib": ["esnext"],
         "module": "esnext",
-        "moduleResolution": "NodeNext",
+        "moduleResolution": "nodenext",
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
         "noImplicitUseStrict": false,
@@ -22,6 +19,6 @@
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "strict": true,
-        "target": "ESNext"
+        "target": "esnext"
     }
 }
