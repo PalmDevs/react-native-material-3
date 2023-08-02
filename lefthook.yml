@@ -1,16 +1,24 @@
 pre-commit:
     parallel: true
     commands:
-        lint:
-            files: git diff --name-only @{push}
-            glob: '*.{js,ts,jsx,tsx}'
-            run: npx eslint {files}
         types:
             files: git diff --name-only @{push}
             glob: '*.{js,ts, jsx, tsx}'
             run: npx tsc --noEmit
+        types_example:
+            files: git diff --name-only @{push}
+            glob: '*.{js,ts, jsx, tsx}'
+            run: npx tsc --project example/tsconfig.json --noEmit
+        format:
+            files: git diff --name-only @{push}
+            glob: '*.{js,ts,jsx,tsx}'
+            run: npx prettier --check {files}
+        lint:
+            files: git diff --name-only @{push}
+            glob: '*.{js,ts,jsx,tsx}'
+            run: npx eslint --cache {files}
 commit-msg:
-    parallel: true
+    parallel: false
     commands:
         commitlint:
             run: npx commitlint --edit
