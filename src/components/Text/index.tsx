@@ -1,16 +1,15 @@
-import { useContext } from 'react'
 import {
     Animated as AnimatedAPI,
     Text as NativeText,
     TextStyle as NativeTextStyle,
     TextProps,
 } from 'react-native'
-import InternalColorContext from '../../contexts/InternalColorContext'
 import * as TypeScale from '../../constants/TypeScale'
+import useMaterial3ColorScheme from '../../hooks/useMaterial3ColorScheme'
 
 const createScaledNativeTextComponent =
     (textStyle: NativeTextStyle) => (props: TextProps) => {
-        const colors = useContext(InternalColorContext)
+        const [colors] = useMaterial3ColorScheme()
 
         return (
             <NativeText
@@ -30,7 +29,7 @@ const createScaledNativeTextComponent =
 
 const createScaledNativeAnimatedTextComponent =
     (textStyle: NativeTextStyle) => (props: TextProps) => {
-        const colors = useContext(InternalColorContext)
+        const [colors] = useMaterial3ColorScheme()
 
         return (
             <AnimatedAPI.Text
