@@ -2,6 +2,7 @@
     "root": true,
     "extends": ["@react-native-community", "prettier"],
     "rules": {
+        "import/no-unresolved": "error",
         "prettier/prettier": [
             "error",
             {
@@ -13,5 +14,20 @@
             }
         ],
         "react/react-in-jsx-scope": "off"
+    },
+    "plugins": ["import"],
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true,
+                "project": [
+                    "./example/tsconfig.json",
+                    "./tsconfig.json"
+                ]
+            }
+        }
     }
 }
