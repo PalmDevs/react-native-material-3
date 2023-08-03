@@ -1,6 +1,10 @@
-# Ⓜ️ React Native Material 3
+<p align="center"><img height="128px" src="./assets/mascot.svg" alt="React Native Material 3 wordmark" /></p>
+<h1 align="center">React Native Material 3</h1>
 
-[**Material Design 3**](https://m3.material.io) components library for [**React Native**](https://reactnative.dev) with great support for interactivity out of the box. A more up-to-date alternative to React Native Paper.
+<p align="center"><a href="https://m3.material.io"><strong>Material Design 3</strong></a> components library for <a href="https://reactnative.dev"><strong>React Native</strong></a> with support for interactivity out of the box.
+
+<br />
+<br />
 
 > **Important**  
 > The library is being **heavily** being worked on. See the [roadmap](#-roadmap) for more information.
@@ -66,7 +70,7 @@ Coming soon...
 
 ---
 
-### 🏳️ `v1.1.x` (feature update)
+### 🏳️ `v1.1.0` (feature update)
 
 -   [ ] Navigation drawer
 -   [ ] Navigation rail
