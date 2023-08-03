@@ -1,6 +1,8 @@
 // * Import/export components here
 import Badge, { BadgeProps } from './components/Badge'
-export { Badge, BadgeProps }
+import Divider, { DividerProps } from './components/Divider'
+import Text from './components/Text'
+export { Badge, BadgeProps, Divider, DividerProps, Text }
 
 // * Import/export providers (or contexts) here
 import Material3Provider from './providers/Material3Provider'
