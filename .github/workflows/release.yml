@@ -1,37 +1,37 @@
 name: Release
 on:
-  workflow_dispatch:
-  push:
-    branches: ["main", "staging", "dev"]
+    workflow_dispatch:
+    push:
+        branches: ['main', 'staging', 'dev']
 jobs:
-  release:
-    name: Release
-    runs-on: ubuntu-latest
+    release:
+        name: Release
+        runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.x]
+        strategy:
+            matrix:
+                node-version: [20.x]
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
 
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+            - name: Setup Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
 
-      - name: Install packages
-        run: npm install
+            - name: Install packages
+              run: npm install
 
-      - name: Compile
-        run: npm run build
+            - name: Compile
+              run: npm run build
 
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+            - name: Release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: npx semantic-release

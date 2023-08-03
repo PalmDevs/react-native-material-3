@@ -9,6 +9,8 @@
 > **Important**  
 > The library is being **heavily** being worked on. See the [roadmap](#%EF%B8%8F-roadmap) for more information.
 
+[![Release](https://github.com/PalmDevs/react-native-material3/actions/workflows/release.yml/badge.svg)](https://github.com/PalmDevs/react-native-material3/actions/workflows/release.yml) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
 ## ⬇️ Installation
 
 Coming soon...
