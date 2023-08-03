@@ -7,7 +7,6 @@ const createTypeScale = (
     weight: TextStyle['fontWeight']
 ): TextStyle => {
     return {
-        fontFamily: 'Roboto',
         fontSize: size,
         fontWeight: weight,
         lineHeight: lineHeight,
@@ -52,7 +51,7 @@ export const Title = {
 export const Label = {
     Large: createTypeScale(20, 14, 0.1, '500'),
     Medium: createTypeScale(16, 12, 0.5, '500'),
-    Small: createTypeScale(16, 11, 0.5, '500'),
+    Small: createTypeScale(16, 11, 0.5, '600'),
 }
 
 /**
