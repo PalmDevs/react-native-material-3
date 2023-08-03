@@ -28,6 +28,7 @@
     ],
     "scripts": {
         "prepare": "lefthook install",
+        "example": "cd example && npm start",
         "test": "jest",
         "typecheck": "tsc --noEmit",
         "format": "prettier --write .",
