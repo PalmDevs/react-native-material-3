@@ -1,0 +1,35 @@
+{
+    "branches": [
+        "main",
+        {
+            "name": "staging",
+            "channel": "beta",
+            "prerelease": true
+        },
+        {
+            "name": "dev",
+            "channel": "alpha",
+            "prerelease": true
+        }
+    ],
+    "plugins": [
+        [
+            "@semantic-release/commit-analyzer",
+            { "preset": "conventionalcommits" }
+        ],
+        [
+            "@semantic-release/release-notes-generator",
+            { "preset": "conventionalcommits" }
+        ],
+        "@semantic-release/npm",
+        "@semantic-release/git",
+        [
+            "@semantic-release/github",
+            { 
+                "assets": [
+                    { "path": "dist/**/*", "label": "Distribution" }
+                ]
+            }
+        ]
+    ]
+}
