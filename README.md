@@ -7,7 +7,7 @@
 <br />
 
 > **Important**  
-> The library is being **heavily** being worked on. See the [roadmap](#-roadmap) for more information.
+> The library is being **heavily** being worked on. See the [roadmap](#%EF%B8%8F-roadmap) for more information.
 
 ## ⬇️ Installation
 
