@@ -1,9 +1,9 @@
-import { Material3Scheme } from '@pchmn/expo-material3-theme'
 import { StyleSheet } from 'react-native'
 import { ShapeScale } from '../../constants'
+import { Material3Scheme } from '../../contexts/InternalThemeContext'
 import { StylesCreatorReturnType } from '../../utility-types'
 
-const shapeStyles = {
+export const shapeStyles = {
     container: StyleSheet.create({
         small: {
             width: 6,
@@ -21,7 +21,7 @@ const shapeStyles = {
     }),
 }
 
-const createColorStyles = (colors: Material3Scheme) =>
+export const createColorStyles = (colors: Material3Scheme) =>
     ({
         container: StyleSheet.create({
             shared: {
@@ -33,5 +33,3 @@ const createColorStyles = (colors: Material3Scheme) =>
             color: colors.onError,
         },
     }) satisfies StylesCreatorReturnType
-
-export { shapeStyles, createColorStyles }
