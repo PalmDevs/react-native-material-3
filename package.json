@@ -1,6 +1,6 @@
 {
     "name": "react-native-material3",
-    "description": "Material Design 3 components library for React Native with support for interactivity out of the box.",
+    "description": "Material Design 3 components library for React Native with support for interactivity out of the box",
     "version": "0.1.0",
     "scripts": {
         "prepare": "lefthook install",

@@ -1,7 +1,7 @@
 <p align="center"><img height="128px" src="./assets/mascot.svg" alt="React Native Material 3 wordmark" /></p>
 <h1 align="center">React Native Material 3</h1>
 
-<p align="center"><a href="https://m3.material.io"><strong>Material Design 3</strong></a> components library for <a href="https://reactnative.dev"><strong>React Native</strong></a> with support for interactivity out of the box.
+<p align="center"><a href="https://m3.material.io"><strong>Material Design 3</strong></a> components library for <a href="https://reactnative.dev"><strong>React Native</strong></a> with support for interactivity out of the box
 
 <br />
 <br />
