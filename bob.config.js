@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     source: 'src',
     output: 'dist',
     targets: [
