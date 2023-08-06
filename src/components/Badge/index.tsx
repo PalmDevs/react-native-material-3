@@ -1,26 +1,34 @@
 import { View } from 'react-native'
 import { useMemo } from 'react'
 import Text from '../Text'
-import { shapeStyles, createColorStyles } from './styles'
+import { createContainerStyleSheet, createLabelStyles } from './styles'
 import useMaterial3ColorScheme from '../../hooks/useMaterial3ColorScheme'
 
 export default function Badge(props: BadgeProps) {
-    const { size = 'small' } = props
+    // The symbol is unique and will never change until a new set of colors are generated
     const [colors, symbol] = useMaterial3ColorScheme()
+    const { size = 'small' } = props
 
-    const colorStyles = useMemo(
-        () => createColorStyles(colors),
-        // The symbol is unique and will never change until a new set of colors are generated
+    // * Styles
+
+    const containerStyle = useMemo(
+        () => createContainerStyleSheet(colors)({ size }),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [symbol, size]
+    )
+
+    const labelStyle = useMemo(
+        () => createLabelStyles(colors),
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [symbol]
     )
 
+    // * Component
+
     return (
-        <View
-            style={[shapeStyles.container[size], colorStyles.container.shared]}
-        >
+        <View style={containerStyle}>
             {size === 'large' && (
-                <Text.Label.Small style={colorStyles.label}>
+                <Text.Label.Small style={labelStyle}>
                     {/** @ts-expect-error Uh, we're already checking if size === 'large' */}
                     {props.truncateFunction?.(props.content) || props.content}
                 </Text.Label.Small>

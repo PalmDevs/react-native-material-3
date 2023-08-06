@@ -1,35 +1,34 @@
-import { StyleSheet } from 'react-native'
+import { sv } from 'style-variants'
 import { ShapeScale } from '../../constants'
 import { Material3Scheme } from '../../contexts/InternalThemeContext'
-import { StylesCreatorReturnType } from '../../utility-types'
+import { StyleSheetCreatorReturnType } from '../../utility-types'
 
-export const shapeStyles = {
-    container: StyleSheet.create({
-        small: {
-            width: 6,
-            height: 6,
+export const createContainerStyleSheet = (colors: Material3Scheme) =>
+    sv({
+        base: {
+            ...ShapeScale.Full,
+            backgroundColor: colors.error,
         },
-        large: {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingLeft: 4,
-            paddingRight: 4,
-            minWidth: 16,
-            height: 16,
-        },
-    }),
-}
-
-export const createColorStyles = (colors: Material3Scheme) =>
-    ({
-        container: StyleSheet.create({
-            shared: {
-                ...ShapeScale.Full,
-                backgroundColor: colors.error,
+        variants: {
+            size: {
+                small: {
+                    width: 6,
+                    height: 6,
+                },
+                large: {
+                    paddingLeft: 4,
+                    paddingRight: 4,
+                    minWidth: 16,
+                    height: 16,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                },
             },
-        }),
-        label: {
-            color: colors.onError,
         },
-    }) satisfies StylesCreatorReturnType
+    })
+
+export const createLabelStyles = (colors: Material3Scheme) =>
+    ({
+        color: colors.onError,
+    }) satisfies StyleSheetCreatorReturnType
