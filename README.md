@@ -23,15 +23,18 @@ Coming soon...
 
 ### 🚩 `v1.0.0` (initial release)
 
-> **Note**  
+> **Important**
 > **ETA**: Late Q4 2023 (November 2023 or December 2023)  
 > **This is just an estimate.** There's **NO** guarantee that RNM3 will release around this time.
+
+> **Note**  
+> **BOLD** means it is being actively worked on
 
 #### 📄 Constants & tokens
 
 -   [x] States
     -   [x] Constants
-    -   [ ] Integration with components
+    -   [ ] **Integration with components**
 -   [x] Shape scale
 -   [x] Type scale
 -   [x] Motion
@@ -64,11 +67,18 @@ Coming soon...
 -   [ ] Progress indicators
 -   [ ] Radio button
 -   [ ] Snackbar
--   [ ] Switch
+-   [ ] **Switch**
 -   [ ] Tabs
 -   [x] Text
 -   [ ] Tooltips
 -   [ ] Top app bar
+
+#### ♿ Accessibility
+
+-   [x] Scaling
+-   [ ] RTL support
+    -   [ ] Optional RTL property for icons
+    -   [ ] Element alignment
 
 ---
 
