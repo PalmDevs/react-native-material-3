@@ -29,19 +29,35 @@ export enum UsabilityState {
  * Use the `toggled` property instead.
  * @see https://m3.material.io/foundations/interaction/states/applying-states
  */
-export enum ToggleableState {
+export const ToggleableState = {
     /**
      * An enabled (deactivated) state communicates an interactive component or element. Enabled states use the default styling for each interactive component.
      * @see https://m3.material.io/foundations/interaction/states/applying-states#39b2fc90-01db-41b5-b6f8-47be61ed1479
      */
-    Deactivated,
+    Deactivated: false,
     /**
      * Activated states indicate which item from a set of options is currently being viewed. They are initiated either by default or user choice, using input methods such as a tap, cursor, keyboard, or voice input.
      * Activated states are higher emphasis and signified by an overlay, color change, or other visual treatments applied to elements or segments within a component.
      * @see https://m3.material.io/foundations/interaction/states/applying-states#00302817-650f-4058-a9e4-90f5b19baa7b
      */
-    Activated,
+    Activated: true,
+
+    // * Enums
+
+    /**
+     * Activated states indicate which item from a set of options is currently being viewed. They are initiated either by default or user choice, using input methods such as a tap, cursor, keyboard, or voice input.
+     * Activated states are higher emphasis and signified by an overlay, color change, or other visual treatments applied to elements or segments within a component.
+     * @see https://m3.material.io/foundations/interaction/states/applying-states#00302817-650f-4058-a9e4-90f5b19baa7b
+     */
+    [String(true)]: 'Activated',
+    /**
+     * An enabled (deactivated) state communicates an interactive component or element. Enabled states use the default styling for each interactive component.
+     * @see https://m3.material.io/foundations/interaction/states/applying-states#39b2fc90-01db-41b5-b6f8-47be61ed1479
+     */
+    [String(false)]: 'Deactivated',
 }
+
+export type ToggleableState = true | false
 
 /**
  * States show the interaction status of a component or UI element.
