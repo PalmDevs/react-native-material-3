@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 import { useMemo } from 'react'
 import Text from '../Text'
-import { createContainerStyleSheet, createLabelStyles } from './styles'
+import { createContainerStyle, createLabelStyle } from './styles'
 import useMaterial3ColorScheme from '../../hooks/useMaterial3ColorScheme'
 
 export default function Badge(props: BadgeProps) {
@@ -12,13 +12,13 @@ export default function Badge(props: BadgeProps) {
     // * Styles
 
     const containerStyle = useMemo(
-        () => createContainerStyleSheet(colors)({ size }),
+        () => createContainerStyle(colors)({ size }),
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [symbol, size]
     )
 
     const labelStyle = useMemo(
-        () => createLabelStyles(colors),
+        () => createLabelStyle(colors),
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [symbol]
     )

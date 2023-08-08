@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { View } from 'react-native'
 import useMaterial3ColorScheme from '../../hooks/useMaterial3ColorScheme'
-import { createStyles } from './styles'
+import { createStyle } from './styles'
 
 export default function Divider(props: DividerProps) {
     // The symbol is unique and will never change until a new set of colors are generated
@@ -9,7 +9,13 @@ export default function Divider(props: DividerProps) {
     const { length = 'full', rotation } = props
 
     const style = useMemo(
-        () => createStyles(colors)({ length, rotation }),
+        () =>
+            createStyle(colors)({
+                [rotation === 'horizontal'
+                    ? 'lengthHorizontal'
+                    : 'lengthVertical']: length,
+                rotation,
+            }),
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [symbol, length, rotation]
     )

@@ -1,21 +1,23 @@
 import { Material3Scheme } from '../../contexts/InternalThemeContext'
 import sv from 'style-variants'
 
-export const createStyles = (colors: Material3Scheme) =>
+export const createStyle = (colors: Material3Scheme) =>
     sv({
         base: {
             backgroundColor: colors.outlineVariant,
-            width: '100%',
-            height: 1,
         },
         variants: {
             rotation: {
-                horizontal: {},
+                horizontal: {
+                    width: '100%',
+                    height: 1,
+                },
                 vertical: {
-                    transform: [{ rotateZ: '90deg' }],
+                    width: 1,
+                    height: '100%',
                 },
             },
-            length: {
+            lengthHorizontal: {
                 full: {},
                 inset: {
                     marginLeft: 16,
@@ -24,11 +26,20 @@ export const createStyles = (colors: Material3Scheme) =>
                     marginHorizontal: 16,
                 },
             },
+            lengthVertical: {
+                full: {},
+                inset: {
+                    marginTop: 16,
+                },
+                middleInset: {
+                    marginVertical: 16,
+                },
+            },
         },
     })
 
 // TODO: Subheader/supporting text
-// export const containerStyles = StyleSheet.create({
+// export const containerStyle = StyleSheet.create({
 //     horizontal: {
 //         flexDirection: 'row',
 //     },
