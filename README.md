@@ -30,6 +30,15 @@ Coming soon...
 > **Note**  
 > **BOLD** means it is being actively worked on
 
+#### 🙋🏻‍♂️ Utility functions & hooks
+-   [ ] Theming
+    -   [ ] `createMaterial3Theme()`
+        -   [ ] Updating theme via method
+        -   [ ] Resetting theme to initial method 
+    -   [x] `useColorScheme()` *(replacement for React Native's implementation)*  
+    -   [x] `useMaterial3Theme()`
+    -   [x] `useMaterial3ColorScheme()`
+
 #### 📄 Constants & tokens
 
 -   [x] States
@@ -60,14 +69,21 @@ Coming soon...
 -   [ ] Dialog
 -   [x] Divider
     -   [x] Component
-    -   [ ] Additional subheading support
+    -   [ ] Subheading support*
 -   [ ] List
+    -   [ ] Component
+    -   [ ] Account for extra space for FABs*
 -   [ ] Menu
 -   [ ] Navigation bar
 -   [ ] Progress indicators
 -   [ ] Radio button
 -   [ ] Snackbar
 -   [ ] **Switch**
+    -   [ ] Component
+        -   [x] Base component
+        -   [ ] Icon variants
+    -   [ ] Animation
+    -   [ ] **State layer** *(note: colors, hover effect)*
 -   [ ] Tabs
 -   [x] Text
 -   [ ] Tooltips
@@ -76,6 +92,7 @@ Coming soon...
 #### ♿ Accessibility
 
 -   [x] Scaling
+-   [ ] Accessibility properties
 -   [ ] RTL support
     -   [ ] Optional RTL property for icons
     -   [ ] Element alignment
