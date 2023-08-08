@@ -1,6 +1,6 @@
 import { Material3Theme } from '../contexts/InternalThemeContext'
 import InternalThemeContext from '../contexts/InternalThemeContext'
-import useMaterial3ColorTheme from '../hooks/useMaterial3ColorTheme'
+import useMaterial3Theme from '../hooks/useMaterial3Theme'
 
 /**
  * Provides access to additional configuration options for Material 3 components. Extra configurations include custom theming, and more to come.
@@ -8,7 +8,7 @@ import useMaterial3ColorTheme from '../hooks/useMaterial3ColorTheme'
  * @returns Context provider for Material 3 components
  */
 export default function Material3Provider(props: Material3ProviderProps) {
-    const defaultTheme = useMaterial3ColorTheme()
+    const defaultTheme = useMaterial3Theme()
     const theme = props.theme ?? defaultTheme
 
     return (

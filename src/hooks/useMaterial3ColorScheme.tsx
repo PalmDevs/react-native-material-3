@@ -1,5 +1,5 @@
 import useColorScheme from './useColorScheme'
-import useMaterial3ColorTheme from './useMaterial3ColorTheme'
+import useMaterial3Theme from './useMaterial3Theme'
 import { Material3Theme } from '@pchmn/expo-material3-theme'
 
 /**
@@ -13,7 +13,7 @@ export default function useMaterial3ColorScheme(
     prefersGivenSchemeThanSystemScheme: boolean = false
 ) {
     const systemSchemeName = useColorScheme()
-    const theme = useMaterial3ColorTheme()
+    const theme = useMaterial3Theme()
     const schemeName = prefersGivenSchemeThanSystemScheme
         ? preferredScheme ?? systemSchemeName
         : systemSchemeName ?? preferredScheme

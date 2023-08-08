@@ -10,8 +10,8 @@ export { Material3Provider }
 
 // * Import/export hooks here
 import useMaterial3ColorScheme from './hooks/useMaterial3ColorScheme'
-import useMaterial3ColorTheme from './hooks/useMaterial3ColorTheme'
-export { useMaterial3ColorScheme, useMaterial3ColorTheme }
+import useMaterial3Theme from './hooks/useMaterial3Theme'
+export { useMaterial3ColorScheme, useMaterial3Theme }
 
 // * Import/export constants here
 export { Motion, ShapeScale, State, TypeScale } from './constants'
