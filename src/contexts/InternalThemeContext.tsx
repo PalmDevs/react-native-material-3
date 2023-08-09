@@ -1,31 +1,18 @@
 import {
-    createMaterial3Theme,
     Material3Theme as _Material3Theme,
     Material3Scheme as _Material3Scheme,
 } from '@pchmn/expo-material3-theme'
 import { createContext } from 'react'
+import createMaterial3Theme from '../util/createMaterial3Theme'
 
-// TODO: create themes
+const InternalThemeContext = createContext<Material3Theme>(
+    createMaterial3Theme()
+)
 
-const rawTheme = createMaterial3Theme('#6750A4')
-
-const InternalThemeContext = createContext<Material3Theme>({
-    light: {
-        ...rawTheme.light,
-        __symbol: Symbol(),
-    },
-    dark: {
-        ...rawTheme.dark,
-        __symbol: Symbol(),
-    },
-})
-
-export type Material3Scheme = _Material3Scheme & {
-    __symbol: symbol
-}
-
+export type Material3ColorScheme = _Material3Scheme
 export type Material3Theme = {
-    [K in keyof _Material3Theme]: Material3Scheme
+    schemes: Record<keyof _Material3Theme, Material3ColorScheme>
+    symbols: Record<keyof _Material3Theme, symbol>
 }
 
 export default InternalThemeContext

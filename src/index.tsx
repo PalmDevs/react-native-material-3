@@ -14,5 +14,18 @@ import useMaterial3ColorScheme from './hooks/useMaterial3ColorScheme'
 import useMaterial3Theme from './hooks/useMaterial3Theme'
 export { useMaterial3ColorScheme, useMaterial3Theme }
 
+// * Import/export utilities here
+import createMaterial3Theme, {
+    fromColorSchemes,
+} from './util/createMaterial3Theme'
+export { createMaterial3Theme, fromColorSchemes }
+
 // * Import/export constants here
 export { Motion, ShapeScale, State, TypeScale } from './constants'
+
+// * Import/export types here
+export type {
+    Material3Theme,
+    Material3ColorScheme,
+} from './contexts/InternalThemeContext'
+export type { Material3ProviderProps } from './providers/Material3Provider'
