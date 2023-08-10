@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 import { ShapeScale } from '../../constants'
-import { Material3Scheme } from '../../contexts/InternalThemeContext'
+import { Material3ColorScheme } from '../../contexts/InternalThemeContext'
 import { InteractivityState } from '../../constants/State'
 import sv from 'style-variants'
 
@@ -23,7 +23,7 @@ export const shapeStyle = StyleSheet.create({
     },
 })
 
-export const createTrackStyle = (colors: Material3Scheme) =>
+export const createTrackStyle = (colors: Material3ColorScheme) =>
     sv({
         base: {
             ...ShapeScale.Full,
@@ -80,7 +80,7 @@ export const createTrackStyle = (colors: Material3Scheme) =>
         },
     })
 
-export const createThumbStyle = (colors: Material3Scheme) =>
+export const createThumbStyle = (colors: Material3ColorScheme) =>
     sv({
         base: {
             ...ShapeScale.Full,
@@ -161,7 +161,7 @@ export const createThumbStyle = (colors: Material3Scheme) =>
     })
 
 // export const createStateLayerColors =
-//     (colors: Material3Scheme) =>
+//     (colors: Material3ColorScheme) =>
 //     ({
 //         disabled,
 //         toggled,
@@ -173,8 +173,8 @@ export const createThumbStyle = (colors: Material3Scheme) =>
 //         // a
 //     }
 
-// export const createColorStyle = (colors: Material3Scheme) => StyleSheet.create({
+// export const createColorStyle = (colors: Material3ColorScheme) => StyleSheet.create({
 
 // })
 
-// export const stateStyle = (colors: Material3Scheme) =>
+// export const stateStyle = (colors: Material3ColorScheme) =>

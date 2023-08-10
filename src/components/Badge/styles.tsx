@@ -1,9 +1,9 @@
 import { sv } from 'style-variants'
 import { ShapeScale } from '../../constants'
-import { Material3Scheme } from '../../contexts/InternalThemeContext'
+import { Material3ColorScheme } from '../../contexts/InternalThemeContext'
 import { StyleSheetCreatorReturnType } from '../../utility-types'
 
-export const createContainerStyle = (colors: Material3Scheme) =>
+export const createContainerStyle = (colors: Material3ColorScheme) =>
     sv({
         base: {
             ...ShapeScale.Full,
@@ -28,7 +28,7 @@ export const createContainerStyle = (colors: Material3Scheme) =>
         },
     })
 
-export const createLabelStyle = (colors: Material3Scheme) =>
+export const createLabelStyle = (colors: Material3ColorScheme) =>
     ({
         color: colors.onError,
     }) satisfies StyleSheetCreatorReturnType

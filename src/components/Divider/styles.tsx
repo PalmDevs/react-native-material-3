@@ -1,7 +1,7 @@
-import { Material3Scheme } from '../../contexts/InternalThemeContext'
+import { Material3ColorScheme } from '../../contexts/InternalThemeContext'
 import sv from 'style-variants'
 
-export const createStyle = (colors: Material3Scheme) =>
+export const createStyle = (colors: Material3ColorScheme) =>
     sv({
         base: {
             backgroundColor: colors.outlineVariant,
