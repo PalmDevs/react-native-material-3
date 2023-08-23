@@ -28,8 +28,8 @@ Coming soon...
 > **This is just an estimate.** There's **NO** guarantee that RNM3 will release around this time.
 
 > [!NOTE]\
-> - **BOLD** means it is being actively worked on  
-> - **\*** means it is low priority
+> **BOLD** means it is being actively worked on.  
+> **\*** means it is low priority.  
 
 #### 🙋🏻‍♂️ Utility functions & hooks
 -   [x] Theming
