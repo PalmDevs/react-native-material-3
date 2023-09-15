@@ -53,11 +53,11 @@ Coming soon...
 -   [ ] Bottom app bar
 -   [ ] Bottom sheet
 -   [ ] Buttons
--   [ ] Standard button
--   [ ] FAB
--   [ ] Extended FAB
--   [ ] Icon button
--   [ ] Segmented button
+    -   [ ] Standard button
+    -   [ ] FAB
+    -   [ ] Extended FAB
+    -   [ ] Icon button
+    -   [ ] Segmented button
 -   [ ] Card
 -   [ ] Checkbox
 -   [ ] Chips
@@ -76,9 +76,10 @@ Coming soon...
 -   [ ] **Switch**
     -   [ ] Component
         -   [x] Base component
-        -   [ ] Icon variants
+        -   [ ] **Icon variants**
     -   [ ] Animation
-    -   [ ] **State layer** *(note: colors, hover effect)*
+    -   [ ] Dragging*
+    -   [x] State layer
 -   [ ] Tabs
 -   [x] Text
 -   [ ] Tooltips
