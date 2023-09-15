@@ -1,5 +1,5 @@
 {
-    "name": "react-native-material3",
+    "name": "react-native-material-3",
     "description": "Material Design 3 components library for React Native with support for dynamic theming and interactivity out of the box",
     "version": "0.1.0",
     "scripts": {
@@ -22,14 +22,14 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/PalmDevs/react-native-material3.git"
+        "url": "git+https://github.com/PalmDevs/react-native-material-3.git"
     },
     "author": "PalmDevs <palmpasuthorn@gmail.com> (https://github.com/PalmDevs)",
     "license": "GPL-3.0-only",
     "bugs": {
-        "url": "https://github.com/PalmDevs/react-native-material3/issues"
+        "url": "https://github.com/PalmDevs/react-native-material-3/issues"
     },
-    "homepage": "https://github.com/PalmDevs/react-native-material3#readme",
+    "homepage": "https://github.com/PalmDevs/react-native-material-3#readme",
     "main": "dist/module/index",
     "module": "dist/module/index",
     "types": "dist/typescript/index.d.ts",
