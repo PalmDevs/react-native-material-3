@@ -1,24 +1,25 @@
 import { useMemo } from 'react'
 import { View } from 'react-native'
-import useMaterial3ColorScheme from '../../hooks/useMaterial3ColorScheme'
-import { createStyle } from './styles'
+import useMaterial3ColorScheme from '../../hooks/theming/useMaterial3ColorScheme'
+import { horizontalStyles, verticalStyles } from './styles'
 
 export default function Divider(props: DividerProps) {
-    // The symbol is unique and will never change until a new set of colors are generated
-    const [colors, symbol] = useMaterial3ColorScheme()
-    const { length = 'full', rotation } = props
+    const colors = useMaterial3ColorScheme()
 
-    const style = useMemo(
-        () =>
-            createStyle(colors)({
-                [rotation === 'horizontal'
-                    ? 'lengthHorizontal'
-                    : 'lengthVertical']: length,
-                rotation,
-            }),
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [symbol, length, rotation]
-    )
+    const style = useMemo(() => {
+        const stylesheet =
+            props.rotation === 'horizontal' ? horizontalStyles : verticalStyles
+        return [
+            {
+                backgroundColor: colors.outlineVariant,
+            },
+            stylesheet.shape,
+            props.length !== 'full' &&
+                (props.length === 'inset'
+                    ? stylesheet.lengthInset
+                    : stylesheet.lengthMiddleInset),
+        ]
+    }, [props, colors])
 
     return <View style={style} />
 }

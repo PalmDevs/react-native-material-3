@@ -5,8 +5,3 @@ export declare type NoReadonlyProperties<T> = {
 }
 
 export declare type AnyStyle = ViewStyle | TextStyle | ImageStyle
-
-export declare type StyleSheetCreatorReturnType = Record<
-    string,
-    AnyStyle | StyleSheet.NamedStyles<any>
->

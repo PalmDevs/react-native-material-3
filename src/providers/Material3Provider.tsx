@@ -1,8 +1,6 @@
-import { getMaterial3Theme } from '@pchmn/expo-material3-theme'
-import { Material3Theme } from '../contexts/InternalThemeContext'
+import { Material3Theme, getMaterial3Theme } from '@pchmn/expo-material3-theme'
 import InternalThemeContext from '../contexts/InternalThemeContext'
-import useMaterial3Theme from '../hooks/useMaterial3Theme'
-import { fromColorSchemes } from '../util/createMaterial3Theme'
+import useMaterial3Theme from '../hooks/theming/useMaterial3Theme'
 
 /**
  * Provides access to additional configuration options for Material 3 components. Extra configurations include custom theming, and more to come.
@@ -13,9 +11,7 @@ export default function Material3Provider(props: Material3ProviderProps) {
     const defaultTheme = useMaterial3Theme()
     const theme =
         props.theming?.theme === 'dynamic'
-            ? fromColorSchemes(
-                  getMaterial3Theme(props.theming.fallbackThemeSourceColor)
-              )
+            ? getMaterial3Theme(props.theming.fallbackThemeSourceColor)
             : props.theming?.theme ?? defaultTheme
 
     return (

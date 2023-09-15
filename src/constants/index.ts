@@ -1,19 +1,4 @@
-import * as ShapeScale from './ShapeScale'
-import * as State from './State'
-import * as TypeScale from './TypeScale'
-import * as Motion from './Motion'
-
-/**
- * Constants defined by the Material Design System.
- */
-export { ShapeScale, State, TypeScale, Motion }
-
-/**
- * Constants defined by the Material Design System.
- */
-export default {
-    ShapeScale,
-    State,
-    TypeScale,
-    Motion,
-}
+export { default as ShapeScale } from './ShapeScale'
+export * from './State'
+export { default as TypeScale } from './TypeScale'
+export * from './Motion'

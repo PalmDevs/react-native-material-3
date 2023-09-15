@@ -1,180 +1,147 @@
-import { StyleSheet } from 'react-native'
-import { ShapeScale } from '../../constants'
-import { Material3ColorScheme } from '../../contexts/InternalThemeContext'
-import { InteractivityState } from '../../constants/State'
-import sv from 'style-variants'
+import { StyleProp, StyleSheet, ViewStyle } from 'react-native'
+import { Material3ColorScheme } from '../..'
+import { StateEnum, ShapeScale } from '../../constants'
+import { SwitchProps } from '.'
 
-export const shapeStyle = StyleSheet.create({
-    stateLayer: {
+export const createThumbStyle = (
+    { activated, disabled, variant }: SwitchProps,
+    state: StateEnum,
+    colors: Material3ColorScheme
+): StyleProp<ViewStyle> => [
+    styles.thumbBase,
+
+    // Conditional
+
+    activated
+        ? {
+              width: 22,
+              height: 22,
+              margin: 4,
+              backgroundColor: colors.onPrimary,
+          }
+        : { backgroundColor: colors.outline },
+
+    disabled &&
+        (activated
+            ? { backgroundColor: colors.onSurface }
+            : {
+                  backgroundColor: colors.onSurface,
+                  opacity: 0.38,
+              }),
+
+    // State
+
+    state !== StateEnum.Default &&
+        (activated
+            ? { backgroundColor: colors.primaryContainer }
+            : { backgroundColor: colors.onSurfaceVariant }),
+
+    // Sizing
+    // This should and will overwrite the size and margin of the styles applied above. Similar to how !important works in CSS.
+
+    variant === 'icon' && { width: 24, height: 24, margin: 2 },
+
+    state === StateEnum.Pressed && {
+        width: 28,
+        height: 28,
+    },
+]
+
+export const createTrackStyle = (
+    { activated, disabled }: SwitchProps,
+    _state: StateEnum,
+    colors: Material3ColorScheme
+): StyleProp<ViewStyle> => [
+    // Base
+
+    styles.trackBase,
+    {
+        borderColor: colors.outline,
+    },
+
+    // Conditional
+
+    activated
+        ? {
+              backgroundColor: colors.primary,
+              borderWidth: 0,
+          }
+        : {
+              backgroundColor: colors.surfaceContainerHighest,
+          },
+
+    disabled &&
+        (activated
+            ? {
+                  opacity: 0.12,
+                  backgroundColor: colors.onSurface,
+              }
+            : {
+                  opacity: 0.12,
+                  backgroundColor: colors.surfaceContainerHighest,
+                  borderColor: colors.onSurface,
+              }),
+]
+
+export const createThumbContainerStyle = (
+    { activated }: SwitchProps,
+    _state: StateEnum,
+    _colors: Material3ColorScheme
+): StyleProp<ViewStyle> => [
+    styles.thumbContainerBase,
+    {
+        // Aligns the thumb to the left when not activated and right when activated
+        alignItems: activated ? 'flex-end' : 'flex-start',
+
+        // The thumb when in default and deactivated state should visually look to be exactly 6dp away from the track's border.
+        // However, the math also applies to the activated state.
+
+        // When in pressed state, it should be 0dp away from the track's border.
+        // x = (stateLayerEffectContainerWidth - trackWidth) / 2 = (40 - 16) / 2 = 12
+        // x - borderWidth = x - 2 = 10; We are 10px away.
+        // 10 - 6 = 4; We need to move the thumb 4px to the direction.
+        marginHorizontal: activated ? 4 : -4,
+    },
+]
+
+export const styles = StyleSheet.create({
+    thumbBase: {
         ...ShapeScale.Full,
+        width: 16,
+        height: 16,
+    },
+    thumbContainerBase: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        // Deal with it, it's an overlay on top of the track
+        position: 'absolute',
+        // The thumb container should fill the space of the track container
+        width: 52,
+        height: 32,
+    },
+    trackBase: {
+        ...ShapeScale.Full,
+        width: 52,
+        height: 32,
+        borderStyle: 'solid',
+        borderWidth: 2,
+    },
+    trackContainer: {
+        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+    },
+
+    // State layer styles
+
+    // TODO: Fix this magic number
+    // Some alignment issues happen when not using magic numbers...
+    // UPDATE: Seems to be a React Native issue when centering elements
+    stateLayer: {
+        width: 39.9999,
+        height: 39.9999,
         overflow: 'hidden',
-    },
-    thumb: {
-        width: 16,
-        height: 16,
-    },
-    iconThumb: {
-        width: 24,
-        height: 24,
-    },
-    icon: {
-        width: 16,
-        height: 16,
+        marginHorizontal: -4.0001,
     },
 })
-
-export const createTrackStyle = (colors: Material3ColorScheme) =>
-    sv({
-        base: {
-            ...ShapeScale.Full,
-            height: 32,
-            width: 52,
-            borderStyle: 'solid',
-            borderWidth: 2,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderColor: colors.outline,
-        },
-        variants: {
-            toggled: {
-                true: {
-                    height: 32,
-                    width: 52,
-                    backgroundColor: colors.primary,
-                    alignItems: 'flex-end',
-                    borderWidth: 0,
-                },
-                false: {
-                    backgroundColor: colors.surfaceContainerHighest,
-                    alignItems: 'flex-start',
-                },
-            },
-            interactivityStateToggled: {
-                [InteractivityState.NoInteraction]: {},
-                [InteractivityState.Pressed]: {},
-                [InteractivityState.Focused]: {},
-                [InteractivityState.Hovered]: {},
-            },
-            interactivityState: {
-                [InteractivityState.NoInteraction]: {},
-                [InteractivityState.Pressed]: {},
-                [InteractivityState.Focused]: {},
-                [InteractivityState.Hovered]: {},
-            },
-            disabledToggled: {
-                true: {
-                    opacity: 0.12,
-                    backgroundColor: colors.onSurface,
-                },
-                false: {},
-            },
-            disabled: {
-                true: {
-                    opacity: 0.12,
-                    backgroundColor: colors.surfaceContainerHighest,
-                    borderColor: colors.onSurface,
-                },
-                false: {},
-            },
-        },
-    })
-
-export const createThumbStyle = (colors: Material3ColorScheme) =>
-    sv({
-        base: {
-            ...ShapeScale.Full,
-            // ! Account for borderWidth (which is 2), 6 + 2 = 8
-            margin: 8,
-        },
-        variants: {
-            variant: {
-                default: {
-                    width: 16,
-                    height: 16,
-                },
-                icon: {
-                    margin: 2,
-                    width: 24,
-                    height: 24,
-                },
-                enabledIcon: {
-                    width: 16,
-                    height: 16,
-                },
-            },
-            toggled: {
-                true: {
-                    width: 22,
-                    height: 22,
-                    margin: 4,
-                    backgroundColor: colors.onPrimary,
-                },
-                false: {
-                    width: 16,
-                    height: 16,
-                    backgroundColor: colors.outline,
-                },
-            },
-            interactivityStateToggled: {
-                [InteractivityState.NoInteraction]: {},
-                [InteractivityState.Pressed]: {
-                    backgroundColor: colors.primaryContainer,
-                    width: 28,
-                    height: 28,
-                },
-                [InteractivityState.Focused]: {
-                    backgroundColor: colors.primaryContainer,
-                },
-                [InteractivityState.Hovered]: {
-                    backgroundColor: colors.primaryContainer,
-                },
-            },
-            interactivityState: {
-                [InteractivityState.NoInteraction]: {},
-                [InteractivityState.Pressed]: {
-                    backgroundColor: colors.onSurfaceVariant,
-                    width: 28,
-                    height: 28,
-                },
-                [InteractivityState.Focused]: {
-                    backgroundColor: colors.onSurfaceVariant,
-                },
-                [InteractivityState.Hovered]: {
-                    backgroundColor: colors.onSurfaceVariant,
-                },
-            },
-            disabledToggled: {
-                true: {
-                    backgroundColor: colors.surface,
-                },
-                false: {},
-            },
-            disabled: {
-                true: {
-                    opacity: 0.38,
-                    backgroundColor: colors.onSurface,
-                },
-                false: {},
-            },
-        },
-    })
-
-// export const createStateLayerColors =
-//     (colors: Material3ColorScheme) =>
-//     ({
-//         disabled,
-//         toggled,
-//         interactivityState,
-//     }: {
-//         disabled: boolean
-//         toggled: boolean
-//     }) => {
-//         // a
-//     }
-
-// export const createColorStyle = (colors: Material3ColorScheme) => StyleSheet.create({
-
-// })
-
-// export const stateStyle = (colors: Material3ColorScheme) =>

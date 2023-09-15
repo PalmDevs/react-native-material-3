@@ -1,42 +1,30 @@
-import { Material3ColorScheme } from '../../contexts/InternalThemeContext'
-import sv from 'style-variants'
+import { StyleSheet } from 'react-native'
 
-export const createStyle = (colors: Material3ColorScheme) =>
-    sv({
-        base: {
-            backgroundColor: colors.outlineVariant,
-        },
-        variants: {
-            rotation: {
-                horizontal: {
-                    width: '100%',
-                    height: 1,
-                },
-                vertical: {
-                    width: 1,
-                    height: '100%',
-                },
-            },
-            lengthHorizontal: {
-                full: {},
-                inset: {
-                    marginLeft: 16,
-                },
-                middleInset: {
-                    marginHorizontal: 16,
-                },
-            },
-            lengthVertical: {
-                full: {},
-                inset: {
-                    marginTop: 16,
-                },
-                middleInset: {
-                    marginVertical: 16,
-                },
-            },
-        },
-    })
+export const horizontalStyles = StyleSheet.create({
+    shape: {
+        width: '100%',
+        height: 1,
+    },
+    lengthInset: {
+        marginLeft: 16,
+    },
+    lengthMiddleInset: {
+        marginHorizontal: 16,
+    },
+})
+
+export const verticalStyles = StyleSheet.create({
+    shape: {
+        width: 1,
+        height: '100%',
+    },
+    lengthInset: {
+        marginTop: 16,
+    },
+    lengthMiddleInset: {
+        marginVertical: 16,
+    },
+})
 
 // TODO: Subheader/supporting text
 // export const containerStyle = StyleSheet.create({

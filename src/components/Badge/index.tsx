@@ -1,35 +1,32 @@
 import { View } from 'react-native'
 import { useMemo } from 'react'
 import Text from '../Text'
-import { createContainerStyle, createLabelStyle } from './styles'
-import useMaterial3ColorScheme from '../../hooks/useMaterial3ColorScheme'
+import { styles } from './styles'
+import useMaterial3ColorScheme from '../../hooks/theming/useMaterial3ColorScheme'
 
 export default function Badge(props: BadgeProps) {
-    // The symbol is unique and will never change until a new set of colors are generated
-    const [colors, symbol] = useMaterial3ColorScheme()
-    const { size = 'small' } = props
+    const colors = useMaterial3ColorScheme()
 
-    // * Styles
-
-    const containerStyle = useMemo(
-        () => createContainerStyle(colors)({ size }),
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [symbol, size]
+    const scopedStyles = useMemo(
+        () => ({
+            container: [
+                styles.containerBase,
+                {
+                    backgroundColor: colors.error,
+                },
+                props.size === 'large' ? styles.sizeLarge : styles.sizeSmall,
+            ],
+            label: {
+                color: colors.onError,
+            },
+        }),
+        [props, colors]
     )
-
-    const labelStyle = useMemo(
-        () => createLabelStyle(colors),
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [symbol]
-    )
-
-    // * Component
 
     return (
-        <View style={containerStyle}>
-            {size === 'large' && (
-                <Text.Label.Small style={labelStyle}>
-                    {/** @ts-expect-error Uh, we're already checking if size === 'large' */}
+        <View style={scopedStyles.container}>
+            {props.size === 'large' && (
+                <Text.Label.Small style={scopedStyles.label}>
                     {props.truncateFunction?.(props.content) || props.content}
                 </Text.Label.Small>
             )}

@@ -3,11 +3,11 @@ import useMaterial3Theme from './useMaterial3Theme'
 import { Material3Theme } from '@pchmn/expo-material3-theme'
 
 /**
- * Returns a Material 3 color scheme for the current color scheme (`light` or `dark`) and the current Material 3 color scheme symbol.
- * If the current color scheme is not applicable, it defaults to `light`. This can be overriden.
- * @param preferredScheme The preferred color scheme, if the system scheme is nullable
+ * Returns the currently using Material 3 color scheme.
+ * If the system color scheme is not applicable, it defaults to `light`. This can be overriden.
+ * @param preferredScheme The preferred color scheme, if the system color scheme is nullable
  * @param prefersGivenSchemeThanSystemScheme If `true`, the preferred color scheme will overwrite the system color scheme
- * @returns An array with the current color scheme and the current theme symbol ordered accordingly
+ * @returns An object with colors
  */
 export default function useMaterial3ColorScheme(
     preferredScheme?: Scheme,
@@ -20,7 +20,7 @@ export default function useMaterial3ColorScheme(
             ? preferredScheme ?? systemSchemeName
             : systemSchemeName ?? preferredScheme) ?? 'light'
 
-    return [theme.schemes[schemeName], theme.symbols[schemeName]] as const
+    return theme[schemeName]
 }
 
 type Scheme = keyof Material3Theme & {}

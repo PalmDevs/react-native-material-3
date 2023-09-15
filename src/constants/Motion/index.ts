@@ -1,4 +1,2 @@
-import * as Easing from './Easing'
-import * as Duration from './Duration'
-
-export { Easing, Duration }
+export { default as Easing } from './Easing'
+export { default as Duration } from './Duration'

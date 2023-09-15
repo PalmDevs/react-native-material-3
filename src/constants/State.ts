@@ -1,77 +1,16 @@
-// Enabled comes first (0) because we use `disabled` properties instead of `enabled`
-
 /**
  * States show the interaction status of a component or UI element.
  *
  * ### This does not need to be passed to a component.
- * Use the `disabled` property instead.
+ * They are automatically applied on interactions.
  * @see https://m3.material.io/foundations/interaction/states/applying-states
  */
-export enum UsabilityState {
+export enum StateEnum {
     /**
-     * An enabled state communicates an interactive component or element. Enabled states use the default styling for each interactive component.
+     * An enabled (default) state communicates an interactive component or element. Enabled states use the default styling for each interactive component.
      * @see https://m3.material.io/foundations/interaction/states/applying-states#39b2fc90-01db-41b5-b6f8-47be61ed1479
      */
-    Enabled,
-    /**
-     * A disabled state, also known as an inoperable state, communicates when a component or element isn’t interactive. Inoperable states are deemphasized by reducing the enabled state to 38% opacity.
-     * Inoperable states can also indicate they are not interactive through color changes and reduced elevation.
-     * **Disabled and inoperable states do not need to meet contrast requirements.**
-     * @see https://m3.material.io/foundations/interaction/states/applying-states#4aff9c51-d20f-4580-a510-862d2e25e931
-     */
-    Disabled,
-}
-
-/**
- * States show the interaction status of a component or UI element.
- *
- * ### This does not need to be passed to a component.
- * Use the `toggled` property instead.
- * @see https://m3.material.io/foundations/interaction/states/applying-states
- */
-export const ToggleableState = {
-    /**
-     * An enabled (deactivated) state communicates an interactive component or element. Enabled states use the default styling for each interactive component.
-     * @see https://m3.material.io/foundations/interaction/states/applying-states#39b2fc90-01db-41b5-b6f8-47be61ed1479
-     */
-    Deactivated: false,
-    /**
-     * Activated states indicate which item from a set of options is currently being viewed. They are initiated either by default or user choice, using input methods such as a tap, cursor, keyboard, or voice input.
-     * Activated states are higher emphasis and signified by an overlay, color change, or other visual treatments applied to elements or segments within a component.
-     * @see https://m3.material.io/foundations/interaction/states/applying-states#00302817-650f-4058-a9e4-90f5b19baa7b
-     */
-    Activated: true,
-
-    // * Enums
-
-    /**
-     * Activated states indicate which item from a set of options is currently being viewed. They are initiated either by default or user choice, using input methods such as a tap, cursor, keyboard, or voice input.
-     * Activated states are higher emphasis and signified by an overlay, color change, or other visual treatments applied to elements or segments within a component.
-     * @see https://m3.material.io/foundations/interaction/states/applying-states#00302817-650f-4058-a9e4-90f5b19baa7b
-     */
-    [String(true)]: 'Activated',
-    /**
-     * An enabled (deactivated) state communicates an interactive component or element. Enabled states use the default styling for each interactive component.
-     * @see https://m3.material.io/foundations/interaction/states/applying-states#39b2fc90-01db-41b5-b6f8-47be61ed1479
-     */
-    [String(false)]: 'Deactivated',
-}
-
-export type ToggleableState = true | false
-
-/**
- * States show the interaction status of a component or UI element.
- *
- * ### This does not need to be passed to a component.
- * They are automatically applied on interactions. You can however force the state by passing one of the values to the `forceInteractivityState` property.
- * @see https://m3.material.io/foundations/interaction/states/applying-states
- */
-export enum InteractivityState {
-    /**
-     * An enabled (no-interaction) state communicates an interactive component or element. Enabled states use the default styling for each interactive component.
-     * @see https://m3.material.io/foundations/interaction/states/applying-states#39b2fc90-01db-41b5-b6f8-47be61ed1479
-     */
-    NoInteraction,
+    Default,
     /**
      * Hover states are initiated by the user pausing over an interactive element using a cursor.
      * The lower-emphasis surface overlay for hover states can be applied to the entire component, elements within a component, or as a circular shape over part of the component.
@@ -100,21 +39,10 @@ export enum InteractivityState {
     Dragged,
 }
 
-/**
- * A state layer is a semi-transparent covering on an element that indicates its state. State layers provide a systematic approach to visualizing states by using opacity. A layer can be applied to an entire element or in a circular shape and only one state layer can be applied at a given time.
- * ### This does not need to be passed to a component.
- * @see https://m3.material.io/foundations/interaction/states/state-layers
- */
-export const InteractivityOverlayOpacity = {
-    [InteractivityState.NoInteraction]: 0,
-    [InteractivityState.Hovered]: 0.08,
-    [InteractivityState.Focused]: 0.12,
-    [InteractivityState.Pressed]: 0.12,
-    [InteractivityState.Dragged]: 0.16,
-} as const satisfies Record<InteractivityState, number>
-
-export default {
-    UsabilityState,
-    ToggleableState,
-    InteractivityState,
-}
+export const StateLayerOverlayOpacity = {
+    [StateEnum.Default]: 0,
+    [StateEnum.Hovered]: 0.08,
+    [StateEnum.Focused]: 0.12,
+    [StateEnum.Pressed]: 0.12,
+    [StateEnum.Dragged]: 0.16,
+} as const satisfies Record<StateEnum, number>
