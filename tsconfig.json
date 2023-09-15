@@ -6,7 +6,7 @@
         "forceConsistentCasingInFileNames": true,
         "jsx": "react-jsx",
         "lib": ["esnext"],
-        "module": "esnext",
+        "module": "nodenext",
         "moduleResolution": "nodenext",
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
