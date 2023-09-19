@@ -3,7 +3,7 @@ import Badge, { BadgeProps } from './components/Badge'
 import Divider, { DividerProps } from './components/Divider'
 import Switch, { SwitchProps } from './components/Switch'
 import Text, { TextProps } from './components/Text'
-import View, { ViewProps } from './components/View'
+import Surface, { SurfaceProps } from './components/Surface'
 export {
     Badge,
     BadgeProps,
@@ -13,8 +13,8 @@ export {
     SwitchProps,
     Text,
     TextProps,
-    View,
-    ViewProps,
+    Surface,
+    SurfaceProps,
 }
 
 export * from './constants'
