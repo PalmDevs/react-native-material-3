@@ -1,24 +1,8 @@
 {
+    // It's not an array solely because: https://github.com/TypeStrong/ts-node/issues/2000
+    "extends": "./tsconfig.base",
     "compilerOptions": {
-        "allowUnreachableCode": false,
-        "allowUnusedLabels": false,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "jsx": "react-jsx",
-        "lib": ["esnext"],
-        "module": "nodenext",
-        "moduleResolution": "nodenext",
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitReturns": true,
-        "noImplicitUseStrict": false,
-        "noStrictGenericChecks": false,
-        "noUncheckedIndexedAccess": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "resolveJsonModule": true,
-        "skipLibCheck": true,
-        "strict": true,
-        "target": "esnext"
-    },
-    "exclude": ["node_modules/", "example/", "dist/"]
+        "module": "ES2022",
+        "composite": true
+    }
 }

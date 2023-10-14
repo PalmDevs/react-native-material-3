@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        /* Modules */
+        "jsx": "react-native",
+        "target": "ES2022",
+        "lib": ["ES2022"],
+        "module": "CommonJS",
+        "moduleResolution": "Bundler",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+
+        /* Type checking */
+        "strict": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noImplicitUseStrict": false,
+        "noStrictGenericChecks": false,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "skipLibCheck": true,
+    },
+    "references": [
+        {
+            "path": "."
+        },
+        {
+            "path": "./example"
+        }
+    ],
+    "exclude": ["**/*/node_modules/", "**/*/dist/", "**/*/example", "**/*/__tests__"]
+}
