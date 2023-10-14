@@ -24,7 +24,7 @@ export * from './util'
 
 export type * from './contexts/InternalThemeContext'
 export type * from './providers/Material3Provider'
-export {
+export type {
     Material3Theme,
     Material3Scheme as Material3ColorScheme,
 } from '@pchmn/expo-material3-theme'
