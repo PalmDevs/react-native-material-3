@@ -1,2 +1,2 @@
 export { default as createTypeScale } from './createTypeScale'
-export { default as TextComponent } from './TextComponent'
+export { default as TextComponentUtil } from './TextComponentUtil'

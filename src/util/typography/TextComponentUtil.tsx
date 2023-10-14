@@ -36,8 +36,7 @@ export default {
                     typeScale,
                     props.style,
                 ],
-                // eslint-disable-next-line react-hooks/exhaustive-deps
-                [colors, typeScale, props.style]
+                [colors, props.style]
             )
 
             return (
