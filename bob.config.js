@@ -3,6 +3,7 @@ module.exports = {
     output: 'dist',
     targets: [
         'module',
+        'commonjs',
         [
             'typescript',
             {
