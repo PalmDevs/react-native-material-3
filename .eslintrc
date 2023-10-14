@@ -1,6 +1,9 @@
 {
     "root": true,
     "extends": ["@react-native-community", "prettier"],
+    "parserOptions": {
+        "ecmaVersion": 2022
+    },
     "rules": {
         "import/no-unresolved": "error",
         "prettier/prettier": [
