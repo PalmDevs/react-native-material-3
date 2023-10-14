@@ -53,7 +53,7 @@ Coming soon...
 -   [ ] Bottom app bar
 -   [ ] Bottom sheet
 -   [ ] Buttons
-    -   [ ] Standard button
+    -   [ ] **Standard button**
     -   [ ] FAB
     -   [ ] Extended FAB
     -   [ ] Icon button
@@ -68,19 +68,17 @@ Coming soon...
 -   [ ] List
     -   [ ] Component
     -   [ ] Account for extra space for FABs*
--   [ ] Menu
+-   [ ] Menu* (use [this](https://github.com/mxck/react-native-material-menu))
 -   [ ] Navigation bar
 -   [ ] Progress indicators
 -   [ ] Radio button
 -   [ ] Snackbar
 -   [ ] **Switch**
-    -   [ ] Component
-        -   [x] Base component
-        -   [ ] **Icon variants**
-    -   [ ] Animation
+    -   [x] Component
+    -   [ ] Animation*
     -   [ ] Dragging*
     -   [x] State layer
--   [ ] Tabs
+-   [ ] **Tabs**
 -   [x] Text
 -   [ ] Tooltips
 -   [ ] Top app bar
