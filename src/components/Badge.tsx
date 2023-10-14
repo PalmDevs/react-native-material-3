@@ -1,8 +1,8 @@
-import { View } from 'react-native'
 import { useMemo } from 'react'
-import Text from '../Text'
-import { styles } from './styles'
-import useMaterial3ColorScheme from '../../hooks/theming/useMaterial3ColorScheme'
+import { StyleSheet, View } from 'react-native'
+import Text from './Text'
+import { ShapeScale } from '../constants'
+import useMaterial3ColorScheme from '../hooks/theming/useMaterial3ColorScheme'
 
 export default function Badge(props: BadgeProps) {
     const colors = useMaterial3ColorScheme()
@@ -64,3 +64,22 @@ export type BadgeProps =
               content: Extract<BadgeProps, { size: 'large' }>['content']
           ) => string
       }
+
+export const styles = StyleSheet.create({
+    containerBase: {
+        ...ShapeScale.Full,
+    },
+    sizeSmall: {
+        width: 6,
+        height: 6,
+    },
+    sizeLarge: {
+        paddingLeft: 4,
+        paddingRight: 4,
+        minWidth: 16,
+        height: 16,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+})

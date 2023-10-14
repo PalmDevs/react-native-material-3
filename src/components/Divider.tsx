@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
-import { View } from 'react-native'
-import useMaterial3ColorScheme from '../../hooks/theming/useMaterial3ColorScheme'
-import { horizontalStyles, verticalStyles } from './styles'
+import { View, StyleSheet } from 'react-native'
+import useMaterial3ColorScheme from '../hooks/theming/useMaterial3ColorScheme'
 
 export default function Divider(props: DividerProps) {
     const colors = useMaterial3ColorScheme()
@@ -39,3 +38,29 @@ export type DividerProps = {
      */
     rotation: 'horizontal' | 'vertical'
 }
+
+export const horizontalStyles = StyleSheet.create({
+    shape: {
+        width: '100%',
+        height: 1,
+    },
+    lengthInset: {
+        marginLeft: 16,
+    },
+    lengthMiddleInset: {
+        marginHorizontal: 16,
+    },
+})
+
+export const verticalStyles = StyleSheet.create({
+    shape: {
+        width: 1,
+        height: '100%',
+    },
+    lengthInset: {
+        marginTop: 16,
+    },
+    lengthMiddleInset: {
+        marginVertical: 16,
+    },
+})

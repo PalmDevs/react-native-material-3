@@ -1,6 +1,6 @@
 import { View } from 'react-native'
 import { StateEnum } from '../../constants'
-import { useMemo, useState } from 'react'
+import { ReactNode, useMemo, useState } from 'react'
 import useMaterial3ColorScheme from '../../hooks/theming/useMaterial3ColorScheme'
 import StateLayer from '../StateLayer'
 import {
@@ -9,9 +9,16 @@ import {
     createTrackStyle,
     styles,
 } from './styles'
+import { MaterialIcons } from '@expo/vector-icons'
 
 export default function Switch(props: SwitchProps) {
-    const { activated, setActivated, disabled = false } = props
+    const {
+        activated,
+        setActivated,
+        disabled = false,
+        iconActivated,
+        iconDeactivated,
+    } = props
 
     const colors = useMaterial3ColorScheme()
     const [state, setState] = useState(StateEnum.Default)
@@ -34,7 +41,7 @@ export default function Switch(props: SwitchProps) {
     // Extreme performance optimization
 
     const toggleListener = useMemo(
-        () => () => setActivated(a => !a),
+        () => () => setActivated(act => !act),
         [setActivated]
     )
 
@@ -44,7 +51,15 @@ export default function Switch(props: SwitchProps) {
     )
 
     return (
-        <View style={styles.trackContainer}>
+        <View
+            style={styles.trackContainer}
+            accessible
+            accessibilityRole="switch"
+            accessibilityState={{
+                checked: activated,
+                disabled,
+            }}
+        >
             <View style={scopedStyles.track} />
             <View style={scopedStyles.thumbContainer}>
                 <StateLayer
@@ -63,7 +78,25 @@ export default function Switch(props: SwitchProps) {
                     onHoverOut={resetStateListener}
                     onBlur={resetStateListener}
                 >
-                    <View style={scopedStyles.thumb} />
+                    <View style={scopedStyles.thumb}>
+                        {
+                            // prettier-ignore
+                            (props.variant === 'icon' ||
+                            (props.variant === 'enabledIcon' && activated)) && (
+                                (activated ? iconActivated : iconDeactivated) ?? (
+                                    <MaterialIcons
+                                        name={activated ? 'check' : 'close'}
+                                        size={16}
+                                        color={
+                                            activated
+                                                ? colors.onPrimaryContainer
+                                                : colors.surfaceContainerHighest
+                                        }
+                                    />
+                                )
+                            )
+                        }
+                    </View>
                 </StateLayer>
             </View>
         </View>
@@ -92,4 +125,6 @@ export interface SwitchProps {
      * Whether this switch is disabled
      */
     disabled?: boolean
+    iconActivated?: ReactNode
+    iconDeactivated?: ReactNode
 }

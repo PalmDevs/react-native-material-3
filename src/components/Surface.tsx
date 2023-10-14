@@ -1,7 +1,7 @@
-import { View, ViewProps } from 'react-native'
-import { useMaterial3ColorScheme } from '../hooks'
-import { Material3ColorScheme } from '..'
 import { useMemo } from 'react'
+import { View, ViewProps } from 'react-native'
+import { Material3ColorScheme } from '..'
+import { useMaterial3ColorScheme } from '../hooks'
 
 export default function Surface(props: SurfaceProps) {
     const colors = useMaterial3ColorScheme()

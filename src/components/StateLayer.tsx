@@ -1,14 +1,8 @@
-import {
-    Pressable,
-    PressableProps,
-    StyleProp,
-    View,
-    ViewStyle,
-} from 'react-native'
-import { StateEnum, StateLayerOverlayOpacity } from '../../constants'
-import color from 'tinycolor2'
 import { useMemo, useRef } from 'react'
-import { styles } from './styles'
+// prettier-ignore
+import { Pressable, PressableProps, StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
+import color from 'tinycolor2'
+import { ShapeScale, StateEnum, StateLayerOverlayOpacity } from '../constants'
 
 /**
  * A state layer is a semi-transparent covering on an element that indicates its state. State layers provide a systematic approach to visualizing states by using opacity. A layer can be applied to an entire element or in a circular shape and only one state layer can be applied at a given time.
@@ -19,7 +13,7 @@ export default function StateLayer(props: StateLayerProps) {
     const {
         state,
         rippleEffectColor: rippleColor,
-        interactiveTargetStyle,
+        interactiveTargetStyle: targetStyle,
         effectContainerStyle,
         containInsideParent = false,
         children,
@@ -65,7 +59,7 @@ export default function StateLayer(props: StateLayerProps) {
                 style={[
                     styles.interactiveTargetDefault,
                     containInsideParentStyles,
-                    interactiveTargetStyle,
+                    targetStyle,
                 ]}
             >
                 {children}
@@ -73,6 +67,28 @@ export default function StateLayer(props: StateLayerProps) {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    effectContainerDefault: {
+        ...ShapeScale.Full,
+        // Screw RN's centering bug
+        width: 39.9999,
+        height: 39.9999,
+        margin: -0.0001,
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    interactiveTargetDefault: {
+        ...ShapeScale.Full,
+        width: 48,
+        height: 48,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+})
 
 export type StateLayerProps = Omit<
     PressableProps & {

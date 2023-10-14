@@ -1,7 +1,7 @@
 import { StyleProp, StyleSheet, ViewStyle } from 'react-native'
+import { SwitchProps } from '.'
 import { Material3ColorScheme } from '../..'
 import { StateEnum, ShapeScale } from '../../constants'
-import { SwitchProps } from '.'
 
 export const createThumbStyle = (
     { activated, disabled, variant }: SwitchProps,
@@ -18,6 +18,7 @@ export const createThumbStyle = (
               height: 22,
               margin: 4,
               backgroundColor: colors.onPrimary,
+              transform: [],
           }
         : { backgroundColor: colors.outline },
 
@@ -36,10 +37,14 @@ export const createThumbStyle = (
             ? { backgroundColor: colors.primaryContainer }
             : { backgroundColor: colors.onSurfaceVariant }),
 
-    // Sizing
-    // This should and will overwrite the size and margin of the styles applied above. Similar to how !important works in CSS.
+    // Sizing and transforms
+    // This should and will overwrite the size and margin or transforms of the styles applied above. Similar to how !important works in CSS.
 
     variant === 'icon' && { width: 24, height: 24, margin: 2 },
+    variant === 'enabledIcon' &&
+        !activated && {
+            transform: [{ rotateZ: '-90deg' }],
+        },
 
     state === StateEnum.Pressed && {
         width: 28,
@@ -109,6 +114,9 @@ export const styles = StyleSheet.create({
         ...ShapeScale.Full,
         width: 16,
         height: 16,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     thumbContainerBase: {
         display: 'flex',
@@ -131,17 +139,5 @@ export const styles = StyleSheet.create({
         position: 'relative',
         display: 'flex',
         justifyContent: 'center',
-    },
-
-    // State layer styles
-
-    // TODO: Fix this magic number
-    // Some alignment issues happen when not using magic numbers...
-    // UPDATE: Seems to be a React Native issue when centering elements
-    stateLayer: {
-        width: 39.9999,
-        height: 39.9999,
-        overflow: 'hidden',
-        marginHorizontal: -4.0001,
     },
 })
