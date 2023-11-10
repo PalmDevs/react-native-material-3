@@ -7,7 +7,9 @@
 <br />
 
 > [!IMPORTANT]\
-> The library is being **heavily** being worked on. See the [roadmap](#%EF%B8%8F-roadmap) for more information.
+> **STATUS UPDATE!** I've been unable to work on the project recently since I'm busy with school. Although, this project **will certainly not be abondoned**. [Read more about this on my Discord server.](https://discord.com/invite/mHq2bTfeSa)
+> 
+> The library is being slowly worked on. See the [roadmap](#%EF%B8%8F-roadmap) for more information.
 
 [![Release](https://github.com/PalmDevs/react-native-material-3/actions/workflows/release.yml/badge.svg)](https://github.com/PalmDevs/react-native-material-3/actions/workflows/release.yml) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md) 
 
