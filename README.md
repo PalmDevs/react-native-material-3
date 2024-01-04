@@ -26,7 +26,7 @@ Coming soon...
 ### 🚩 `v1.0.0` (initial release)
 
 > [!IMPORTANT]\
-> **ETA**: Around Q2 2024 (April - June)
+> **ETA**: Around Q2 2024 (April - June)  
 > **This is just an estimate.** There's **NO** guarantee that RNM3 will release around this time.
 
 > [!NOTE]\
@@ -50,7 +50,7 @@ Coming soon...
 
 -   [ ] Badge
     -   [x] Component
-    -   [ ] Integration with other components
+    -   [ ] Integration with other components  
             **Depends on**: other components being finished.
 -   [ ] Bottom app bar
 -   [ ] Bottom sheet
@@ -69,7 +69,7 @@ Coming soon...
     -   [ ] Subheading support*
 -   [ ] List
     -   [ ] Component
-    -   [ ] Account for extra space for FABs*
+    -   [ ] Account for extra empty space for FABs*
 -   [ ] Menu
 -   [ ] Navigation bar
 -   [ ] Progress indicators
@@ -77,7 +77,7 @@ Coming soon...
 -   [ ] Snackbar
 -   [ ] **Switch**
     -   [x] Component
-    -   [ ] Animation*
+    -   [ ] Animation*  
         **Note**: This may be one of the few things I'll work on last as the animation is a bit more complicated than just change from X to Y.
     -   [ ] Dragging*
     -   [x] State layer
