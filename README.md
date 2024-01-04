@@ -7,7 +7,7 @@
 <br />
 
 > [!IMPORTANT]\
-> **STATUS UPDATE!** I've been unable to work on the project recently since I'm busy with school. Although, this project **will certainly not be abondoned**. [Read more about this on my Discord server.](https://discord.com/invite/mHq2bTfeSa)
+> **STATUS UPDATE!** I've been unable to work on the project recently since I'm busy with school. Although, this project **will certainly not be abondoned**.
 > 
 > The library is being slowly worked on. See the [roadmap](#%EF%B8%8F-roadmap) for more information.
 
@@ -26,7 +26,7 @@ Coming soon...
 ### 🚩 `v1.0.0` (initial release)
 
 > [!IMPORTANT]\
-> **ETA**: Late Q4 2023 (November 2023 or December 2023)  
+> **ETA**: Around Q2 2024 (April - June)
 > **This is just an estimate.** There's **NO** guarantee that RNM3 will release around this time.
 
 > [!NOTE]\
@@ -39,8 +39,7 @@ Coming soon...
 #### 📄 Constants & tokens
 
 -   [x] States
-    -   [x] Constants
-    -   [ ] **Integration with components**
+    -   [x] Constants
 -   [x] Shape scale
 -   [x] Type scale
 -   [x] Motion
@@ -52,6 +51,7 @@ Coming soon...
 -   [ ] Badge
     -   [x] Component
     -   [ ] Integration with other components
+            **Depends on**: other components being finished.
 -   [ ] Bottom app bar
 -   [ ] Bottom sheet
 -   [ ] Buttons
@@ -70,7 +70,7 @@ Coming soon...
 -   [ ] List
     -   [ ] Component
     -   [ ] Account for extra space for FABs*
--   [ ] Menu* (use [this](https://github.com/mxck/react-native-material-menu))
+-   [ ] Menu
 -   [ ] Navigation bar
 -   [ ] Progress indicators
 -   [ ] Radio button
@@ -78,6 +78,7 @@ Coming soon...
 -   [ ] **Switch**
     -   [x] Component
     -   [ ] Animation*
+        **Note**: This may be one of the few things I'll work on last as the animation is a bit more complicated than just change from X to Y.
     -   [ ] Dragging*
     -   [x] State layer
 -   [ ] **Tabs**
